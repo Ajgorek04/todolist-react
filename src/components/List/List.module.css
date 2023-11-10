@@ -1,0 +1,8 @@
+.ulList {
+    margin-top: 2rem;
+    list-style-type: none;
+}
+
+.ulList li {
+    padding: 0.5rem 1rem;
+}
