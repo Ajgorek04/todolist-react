@@ -5,9 +5,14 @@ import { List } from "./components/List/List";
 
 function App() {
     const [formVisibility, setFormVisibility] = useState(false);
+    const [tasks, setTasks] = useState([]);
 
     const handleButtonClick = () => {
         setFormVisibility(true);
+    };
+
+    const addTask = (task) => {
+        setTasks([...tasks, task]);
     };
     return (
         <>
@@ -17,9 +22,11 @@ function App() {
                     <h2>Your Tasks</h2>
                     <button onClick={handleButtonClick}>+</button>
                 </div>
-                {formVisibility && <Form hideForm={setFormVisibility} />}
+                {formVisibility && (
+                    <Form hideForm={setFormVisibility} addTask={addTask} />
+                )}
                 <hr />
-                <List />
+                <List tasks={tasks} />
             </div>
         </>
     );

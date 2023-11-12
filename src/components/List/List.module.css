@@ -1,5 +1,6 @@
 .ulList {
     list-style-type: none;
+    word-wrap: break-word;
 }
 
 .ulList li {

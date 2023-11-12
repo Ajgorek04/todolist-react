@@ -1,18 +1,18 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
 
-export function Form({ hideForm }) {
+export function Form({ hideForm, addTask }) {
     const [inputValue, setInputValue] = useState("");
 
     const handleButtonClick = (e) => {
         e.preventDefault();
 
         if (inputValue.trim() !== "") {
-            console.log(inputValue);
+            addTask(inputValue);
             setInputValue("");
             hideForm(false);
         } else {
-            console.error("Pole nie może być puste");
+            console.error("The field cannot be empty");
         }
     };
 
@@ -30,8 +30,7 @@ export function Form({ hideForm }) {
                 onChange={handleInputChange}
             />
             <button className={styles.formButton} onClick={handleButtonClick}>
-                {" "}
-                Add{" "}
+                Add
             </button>
         </form>
     );
