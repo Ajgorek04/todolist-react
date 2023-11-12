@@ -16,3 +16,33 @@ html {
     margin-top: 10%;
     border-radius: 10px;
 }
+
+.containerHeader {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.containerHeader button {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 5px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.containerHeader button:hover {
+    background-color: #008000;
+    border: 1px solid #008000;
+}
+
+hr {
+    align-self: center;
+    width: 90%;
+    margin: 1rem;
+}

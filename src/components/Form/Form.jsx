@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Form.module.css";
 
-export function Form() {
+export function Form({ hideForm }) {
     const [inputValue, setInputValue] = useState("");
 
     const handleButtonClick = (e) => {
@@ -10,6 +10,7 @@ export function Form() {
         if (inputValue.trim() !== "") {
             console.log(inputValue);
             setInputValue("");
+            hideForm(false);
         } else {
             console.error("Pole nie może być puste");
         }
@@ -22,12 +23,16 @@ export function Form() {
     return (
         <form className={styles.form}>
             <input
+                className={styles.formInput}
                 type="text"
                 placeholder="Task Name"
                 value={inputValue}
                 onChange={handleInputChange}
             />
-            <button onClick={handleButtonClick}> Add </button>
+            <button className={styles.formButton} onClick={handleButtonClick}>
+                {" "}
+                Add{" "}
+            </button>
         </form>
     );
 }

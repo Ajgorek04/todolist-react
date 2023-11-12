@@ -4,8 +4,8 @@
     gap: 1rem;
 }
 
-.form input,
-button {
+.form .formInput,
+.formButton {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     background: transparent;
@@ -13,6 +13,7 @@ button {
     color: #fff;
     border-radius: 5px;
     outline: 0;
+    cursor: pointer;
 }
 
 .form input::placeholder {
@@ -27,5 +28,4 @@ button {
 .form button:hover {
     background-color: #fff;
     color: #000;
-    cursor: pointer;
 }
