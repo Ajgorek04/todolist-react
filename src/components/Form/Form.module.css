@@ -13,7 +13,6 @@
     color: #fff;
     border-radius: 5px;
     outline: 0;
-    cursor: pointer;
 }
 
 .from input {
@@ -32,4 +31,5 @@
 .form button:hover {
     background-color: #fff;
     color: #000;
+    cursor: pointer;
 }

@@ -12,7 +12,7 @@ html {
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 400px;
+    min-height: 400px;
     margin-top: 10%;
     border-radius: 10px;
 }
