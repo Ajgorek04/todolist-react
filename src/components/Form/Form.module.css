@@ -16,6 +16,10 @@
     cursor: pointer;
 }
 
+.from input {
+    cursor: unset;
+}
+
 .form input::placeholder {
     text-align: center;
 }
