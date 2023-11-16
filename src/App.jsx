@@ -14,6 +14,13 @@ function App() {
     const addTask = (task) => {
         setTasks([...tasks, task]);
     };
+
+    const handleDelete = (index) => {
+        const updatedTasks = [...tasks];
+        updatedTasks.splice(index, 1);
+        setTasks(updatedTasks);
+    };
+
     return (
         <>
             <h1 className="headerH1">todolist-react.js</h1>
@@ -26,7 +33,7 @@ function App() {
                     <Form hideForm={setFormVisibility} addTask={addTask} />
                 )}
                 <hr />
-                <List tasks={tasks} />
+                <List tasks={tasks} onDelete={handleDelete} />
             </div>
         </>
     );
