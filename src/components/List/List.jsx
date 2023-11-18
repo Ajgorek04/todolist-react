@@ -1,18 +1,22 @@
 import styles from "./List.module.css";
 
 export function List({ tasks, onDelete }) {
-    const handleDelClick = (index) => {
-        onDelete(index);
+    const handleDelClick = (e) => {
+        console.log(e);
+        onDelete(e);
     };
 
     return (
         <ul className={styles.ulList}>
-            {tasks.map((task, index) => (
-                <li key={index}>
-                    <p>{task}</p>
+            {tasks.map((task) => (
+                <li key={task.id}>
+                    <p>{task.taskName}</p>
                     <div className={styles.buttons}>
-                        <button onClick={handleDelClick}>DEL</button>
+                        <button onClick={() => handleDelClick(task.id)}>
+                            DEL
+                        </button>
                         <button>EDIT</button>
+                        <button>DONE</button>
                     </div>
                 </li>
             ))}

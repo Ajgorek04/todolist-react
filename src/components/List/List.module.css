@@ -11,16 +11,16 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2rem;
     border: 1px solid #fff;
-    padding: 1rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 10px;
 }
 
 .buttons {
     display: flex;
-    align-self: flex-end;
     gap: 1rem;
+    justify-content: center;
 }
 
 .buttons button {

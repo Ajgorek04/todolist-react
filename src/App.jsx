@@ -5,20 +5,20 @@ import { List } from "./components/List/List";
 
 function App() {
     const [formVisibility, setFormVisibility] = useState(false);
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([
+        { taskName: "Zadanie 1", done: false, id: 1 },
+        { taskName: "Zadanie 2 dłuższe zadanie wiem", done: true, id: 2 },
+    ]);
 
     const handleButtonClick = () => {
         setFormVisibility(true);
     };
-
     const addTask = (task) => {
-        setTasks([...tasks, task]);
+        setTasks((prevTasks) => [...prevTasks, task]);
     };
 
-    const handleDelete = (index) => {
-        const updatedTasks = [...tasks];
-        updatedTasks.splice(index, 1);
-        setTasks(updatedTasks);
+    const handleDelete = (taskId) => {
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
     };
 
     return (
