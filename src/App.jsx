@@ -13,8 +13,14 @@ function App() {
     const handleButtonClick = () => {
         setFormVisibility(true);
     };
-    const addTask = (task) => {
-        setTasks((prevTasks) => [...prevTasks, task]);
+
+    const addTask = (taskName) => {
+        const newTask = {
+            taskName,
+            done: false,
+            id: Math.floor(Math.random() * 1000) + 1,
+        };
+        setTasks((prevTasks) => [...prevTasks, newTask]);
     };
 
     const handleDelete = (taskId) => {
