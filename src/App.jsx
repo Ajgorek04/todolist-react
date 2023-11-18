@@ -27,6 +27,14 @@ function App() {
         setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
     };
 
+    const handleEdit = (taskId, newTaskName) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === taskId ? { ...task, taskName: newTaskName } : task
+            )
+        );
+    };
+
     return (
         <>
             <h1 className="headerH1">todolist-react.js</h1>
@@ -39,7 +47,11 @@ function App() {
                     <Form hideForm={setFormVisibility} addTask={addTask} />
                 )}
                 <hr />
-                <List tasks={tasks} onDelete={handleDelete} />
+                <List
+                    tasks={tasks}
+                    onDelete={handleDelete}
+                    onEdit={handleEdit}
+                />
             </div>
         </>
     );

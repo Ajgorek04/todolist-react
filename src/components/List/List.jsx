@@ -1,9 +1,13 @@
 import styles from "./List.module.css";
 
-export function List({ tasks, onDelete }) {
+export function List({ tasks, onDelete, onEdit }) {
     const handleDelClick = (e) => {
-        console.log(e);
         onDelete(e);
+    };
+
+    const handleEditClick = (e) => {
+        const newTaskName = prompt("edycja");
+        onEdit(e, newTaskName);
     };
 
     return (
@@ -15,7 +19,9 @@ export function List({ tasks, onDelete }) {
                         <button onClick={() => handleDelClick(task.id)}>
                             DEL
                         </button>
-                        <button>EDIT</button>
+                        <button onClick={() => handleEditClick(task.id)}>
+                            EDIT
+                        </button>
                         <button>DONE</button>
                     </div>
                 </li>
