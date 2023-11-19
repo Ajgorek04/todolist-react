@@ -4,6 +4,7 @@ import styles from "./List.module.css";
 export function List({ tasks, onDelete, onEdit }) {
     const [editingTask, setEditingTask] = useState(null);
     const [newTaskName, setNewTaskName] = useState("");
+    const [completedTasks, setCompletedTasks] = useState([]);
 
     const handleDelClick = (e) => {
         onDelete(e);
@@ -30,6 +31,21 @@ export function List({ tasks, onDelete, onEdit }) {
         }
     };
 
+    const handleDoneClick = (taskId) => {
+        if (completedTasks.includes(taskId)) {
+            setCompletedTasks((prevCompletedTasks) =>
+                prevCompletedTasks.filter(
+                    (completedTask) => completedTask !== taskId
+                )
+            );
+        } else {
+            setCompletedTasks((prevCompletedTasks) => [
+                ...prevCompletedTasks,
+                taskId,
+            ]);
+        }
+    };
+
     return (
         <ul className={styles.ulList}>
             {tasks.map((task) => (
@@ -51,7 +67,15 @@ export function List({ tasks, onDelete, onEdit }) {
                         </div>
                     ) : (
                         <div className={styles.divButtons}>
-                            <p>{task.taskName}</p>
+                            <p
+                                className={
+                                    completedTasks.includes(task.id)
+                                        ? styles.completedTask
+                                        : ""
+                                }
+                            >
+                                {task.taskName}
+                            </p>
                             <div className={styles.buttons}>
                                 <button onClick={() => handleDelClick(task.id)}>
                                     DEL
@@ -61,7 +85,11 @@ export function List({ tasks, onDelete, onEdit }) {
                                 >
                                     EDIT
                                 </button>
-                                <button>DONE</button>
+                                <button
+                                    onClick={() => handleDoneClick(task.id)}
+                                >
+                                    DONE
+                                </button>
                             </div>
                         </div>
                     )}
