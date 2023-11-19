@@ -6,8 +6,12 @@ import { List } from "./components/List/List";
 function App() {
     const [formVisibility, setFormVisibility] = useState(false);
     const [tasks, setTasks] = useState([
-        { taskName: "Zadanie 1", done: false, id: 1 },
-        { taskName: "Zadanie 2 dłuższe zadanie wiem", done: true, id: 2 },
+        { taskName: "Make this web", id: 1 },
+        {
+            taskName:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel explicabo mollitia corporis aut, quo, voluptas excepturi recusandae facilis beatae eum nesciunt optio magni. Officiis, error! Nostrum ut natus quasi exercitationem.",
+            id: 2,
+        },
     ]);
 
     const handleButtonClick = () => {
